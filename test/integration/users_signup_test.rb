@@ -17,6 +17,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   	assert_difference 'User.count', 1 do
   		post_via_redirect users_path, user:{name:"Example User", email:"user@example.com", password:"foobar", password_confirmation:"foobar"}
   	end
-  	assert_template 'user/show'
+  	assert_template 'users/show'
+    assert is_logged_in?
   end
 end
